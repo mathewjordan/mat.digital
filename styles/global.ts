@@ -16,16 +16,19 @@ const defaults = {
   },
 
   html: {
-    fontFamily: "$sans",
+    fontFamily: "$display",
     fontSize: "19px",
+    fontSmooth: "always",
+    webKitFontSmothing: "subpixel-antialiased",
+  },
+
+  "p, li, blockquote": {
+    lineHeight: "1.618em",
   },
 };
 
-const fonts = {};
-
 const globalStyles = globalCss({
   ...defaults,
-  ...fonts,
 });
 
 export default globalStyles;
