@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Container from "../components/Container";
+import GitHub from "../components/GitHub";
+import Signature from "../components/Signature";
 
 const Home: NextPage = () => {
   return (
@@ -17,10 +19,29 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <Container>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "0 1rem",
+            }}
+          >
+            <Link href="/">
+              <a>
+                <Signature />
+              </a>
+            </Link>
+            <Link href="https://github.com/mathewjordan">
+              <a>
+                <GitHub />
+              </a>
+            </Link>
+          </div>
           <h2>About</h2>
           <p>
             I am a designer and developer originally from Latah County, Idaho,
-            United States. _Latah_ is a{" "}
+            United States. <em>Latah</em> is a{" "}
             <Link href="https://www.wikidata.org/wiki/Q1123923">
               <a>Nez Percé</a>
             </Link>

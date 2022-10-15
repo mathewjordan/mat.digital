@@ -13,6 +13,8 @@ const defaults = {
   body: {
     margin: 0,
     padding: 0,
+    backgroundColor: "$slate1",
+    color: "$slate12",
   },
 
   html: {
@@ -24,6 +26,12 @@ const defaults = {
 
   "p, li, blockquote": {
     lineHeight: "1.618em",
+  },
+
+  h2: {
+    color: "$indigo11",
+    fontWeight: "700",
+    fontSize: "$gr6",
   },
 };
 

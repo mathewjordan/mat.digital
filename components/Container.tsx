@@ -35,10 +35,10 @@ export const ContainerStyled = styled("div", {
   variants: {
     containerType: {
       default: {
-        maxWidth: `${width.md}px`,
+        maxWidth: `${width.sm}px`,
       },
       wide: {
-        maxWidth: `${width.lg}px`,
+        maxWidth: `${width.md}px`,
       },
     },
     isFlex: {

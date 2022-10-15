@@ -1,6 +1,7 @@
-import { slate } from "@radix-ui/colors";
+import { indigo, slate } from "@radix-ui/colors";
 
 const colors = {
+  ...indigo,
   ...slate,
 };
 
