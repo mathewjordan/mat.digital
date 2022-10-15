@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <style>
           @import
-          url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+          url(`https://fonts.googleapis.com/css2?family=Lora&display=swap`);
         </style>
       </Head>
       <main>
@@ -24,10 +24,11 @@ const Home: NextPage = () => {
             <Link href="https://www.wikidata.org/wiki/Q1123923">
               <a>Nez Percé</a>
             </Link>
-            , (Nimíipuu) word for "the place of pine trees and pestle." I
-            currently live in Asheville, North Carolina, and work for
-            Northwestern University Libraries, where I contribute to open-source
-            software enhancing digital archives with a focus on user experience.
+            , (Nimíipuu) word for &ldquo;the place of pine trees and
+            pestle.&rdquo; I currently live in Asheville, North Carolina, and
+            work for Northwestern University Libraries, where I contribute to
+            open-source software enhancing digital archives with a focus on user
+            experience.
           </p>
           <p>
             Outside the office, I am likely to be found avoiding technology,
