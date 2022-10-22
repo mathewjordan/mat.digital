@@ -33,6 +33,11 @@ const Home: NextPage = () => {
               open-source software enhancing digital archives with a focus on
               user experience.
             </p>
+            <p>
+              Outside the office, I am likely to be found avoiding technology,
+              tending a bonsai garden, backpacking the Blue Ridge Mountains,
+              cooking, reading, and learning to become the best parent I can be.
+            </p>
           </Section>
         </Container>
       </main>
