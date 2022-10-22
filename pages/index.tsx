@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "../components/Container";
 import GitHub from "../components/GitHub";
 import Signature from "../components/Signature";
+import ThemeMode from "../components/ThemeMode";
 
 const Home: NextPage = () => {
   return (
@@ -32,11 +33,21 @@ const Home: NextPage = () => {
                 <Signature />
               </a>
             </Link>
-            <Link href="https://github.com/mathewjordan">
-              <a>
-                <GitHub />
-              </a>
-            </Link>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "0 1rem",
+              }}
+            >
+              <Link href="https://github.com/mathewjordan">
+                <a>
+                  <GitHub />
+                </a>
+              </Link>
+              <ThemeMode />
+            </div>
           </div>
           <h2>About</h2>
           <p>

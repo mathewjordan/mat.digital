@@ -36,7 +36,7 @@ export const Underline = styled("path", {
 });
 
 export const GitHubStyled = styled("svg", {
-  height: "calc($gr4 - 4px)",
+  height: "calc($gr4 - 8px)",
   margin: "$gr5 0 $gr4 -$gr1",
   fill: "$slate12",
   transition: "$all",

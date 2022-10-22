@@ -1,8 +1,13 @@
-import { indigo, slate } from "@radix-ui/colors";
+import { indigo, indigoDark, slate, slateDark } from "@radix-ui/colors";
 
-const colors = {
+const dark = {
+  ...indigoDark,
+  ...slateDark,
+};
+
+const light = {
   ...indigo,
   ...slate,
 };
 
-export default colors;
+export { dark, light };
