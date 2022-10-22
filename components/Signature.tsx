@@ -19,7 +19,7 @@ const Signature = () => {
 };
 
 export const SignaturedStyled = styled("svg", {
-  height: "calc($gr5 - 10px)",
+  height: "$gr5",
   margin: "$gr5 0 $gr4 -$gr2",
   fill: "$amber12",
   transform: "rotate(-1deg)",
