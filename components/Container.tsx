@@ -49,11 +49,11 @@ export const ContainerStyled = styled("div", {
     },
   },
   width: "100%",
-  padding: "$gr6 $gr4",
+  padding: "$gr7 $gr4",
   transition: "$all",
 
   "@md": {
-    padding: "$gr3 $gr4",
+    padding: "$gr4",
   },
 
   "@sm": {

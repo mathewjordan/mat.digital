@@ -6,22 +6,29 @@ const defaults = {
   },
 
   a: {
-    color: "inherit",
-    textDecoration: "none",
+    color: "$indigo11",
+    textDecoration: "underline",
+
+    "&:hover": {
+      color: "$indigo12",
+    },
   },
 
   body: {
     margin: 0,
     padding: 0,
-    backgroundColor: "$sand1",
-    color: "$sand12",
+    backgroundColor: "$indigo1",
+    color: "$indigo12",
+    fontWeight: "400",
   },
 
   html: {
-    fontFamily: "$display",
-    fontSize: "19px",
+    fontFamily: "$body",
+    fontSize: "18px",
+    letterSpacing: "0.015em",
     fontSmooth: "always",
-    webKitFontSmothing: "subpixel-antialiased",
+    webKitFontSmothing: "antialiased",
+    mozOsxFontSmoth: "grayscale",
   },
 
   "p, li, blockquote": {
@@ -29,9 +36,11 @@ const defaults = {
   },
 
   h2: {
-    color: "$sand11",
-    fontWeight: "400",
+    fontWeight: "600",
     fontSize: "$gr5",
+    fontStyle: "italic",
+    letterSpacing: "0",
+    textTransform: "lowercase",
   },
 };
 

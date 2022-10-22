@@ -12,10 +12,6 @@ const Home: NextPage = () => {
         <title>Mat Jordan</title>
         <meta name="description" content="Mat Jordan - Designer & Developer" />
         <link rel="icon" href="/favicon.ico" />
-        <style>
-          @import
-          url(`https://fonts.googleapis.com/css2?family=Lora&display=swap`);
-        </style>
       </Head>
       <main>
         <Container>
@@ -25,7 +21,7 @@ const Home: NextPage = () => {
               I am a designer and developer originally from Latah County, Idaho,
               United States. <em>Latah</em> is a{" "}
               <Link href="https://www.wikidata.org/wiki/Q1123923">
-                <a>Nez Percé</a>
+                <a target="_blank">Nez Percé</a>
               </Link>
               , (Nimíipuu) word for &ldquo;the place of pine trees and
               pestle.&rdquo; I currently live in Asheville, North Carolina, and

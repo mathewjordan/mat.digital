@@ -20,13 +20,13 @@ const Signature = () => {
 
 export const SignaturedStyled = styled("svg", {
   height: "$gr5",
-  margin: "$gr5 0 $gr4 -$gr2",
-  fill: "$amber12",
+  margin: "$gr5 0 $gr4 -$gr3",
+  fill: "$indigo11",
   transform: "rotate(-1deg)",
   transition: "$all",
 
   "&:hover": {
-    fill: "$amber11",
+    fill: "$indigo12",
   },
 });
 
