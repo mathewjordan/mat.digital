@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Container from "../components/Container";
 import Header from "../components/Header";
+import InlineHeading from "../components/Heading";
 import Section from "../components/Section";
 
 const Home: NextPage = () => {
@@ -13,11 +14,14 @@ const Home: NextPage = () => {
         <meta name="description" content="Mat Jordan - Designer & Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main style={{ zIndex: "1", position: "relative" }}>
         <Container>
           <Header />
-          <Section title="About">
+          <Section>
             <p>
+              <InlineHeading as="span">
+                Making things simple again.
+              </InlineHeading>{" "}
               I am a designer and developer originally from Latah County, Idaho,
               United States. <em>Latah</em> is a{" "}
               <Link href="https://www.wikidata.org/wiki/Q1123923">

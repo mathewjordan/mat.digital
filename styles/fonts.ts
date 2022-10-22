@@ -1,8 +1,9 @@
-const generic = `Georgia, 'Times New Roman', serif`;
-const body = `'Newsreader', ${generic}`;
+const sans = `'Inter', serif`;
+const serif = `'Newsreader', sans-serif`;
 
 const fonts = {
-  body,
+  sans,
+  serif,
 };
 
 export default fonts;

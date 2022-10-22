@@ -17,15 +17,14 @@ const defaults = {
   body: {
     margin: 0,
     padding: 0,
-    backgroundColor: "$indigo1",
     color: "$indigo12",
+    backgroundColor: "$indigo1",
     fontWeight: "400",
   },
 
   html: {
-    fontFamily: "$body",
-    fontSize: "18px",
-    letterSpacing: "0.015em",
+    fontFamily: "$sans",
+    fontSize: "16px",
     fontSmooth: "always",
     webKitFontSmothing: "antialiased",
     mozOsxFontSmoth: "grayscale",
@@ -33,14 +32,6 @@ const defaults = {
 
   "p, li, blockquote": {
     lineHeight: "1.618em",
-  },
-
-  h2: {
-    fontWeight: "600",
-    fontSize: "$gr5",
-    fontStyle: "italic",
-    letterSpacing: "0",
-    textTransform: "lowercase",
   },
 };
 
