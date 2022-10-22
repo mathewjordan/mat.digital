@@ -13,8 +13,8 @@ const defaults = {
   body: {
     margin: 0,
     padding: 0,
-    backgroundColor: "$slate1",
-    color: "$slate12",
+    backgroundColor: "$sand1",
+    color: "$sand12",
   },
 
   html: {
@@ -29,9 +29,9 @@ const defaults = {
   },
 
   h2: {
-    color: "$indigo11",
-    fontWeight: "700",
-    fontSize: "$gr6",
+    color: "$sand11",
+    fontWeight: "400",
+    fontSize: "$gr5",
   },
 };
 

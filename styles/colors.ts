@@ -1,13 +1,13 @@
-import { indigo, indigoDark, slate, slateDark } from "@radix-ui/colors";
+import { amber, amberDark, sand, sandDark } from "@radix-ui/colors";
 
 const dark = {
-  ...indigoDark,
-  ...slateDark,
+  ...amberDark,
+  ...sandDark,
 };
 
 const light = {
-  ...indigo,
-  ...slate,
+  ...amber,
+  ...sand,
 };
 
 export { dark, light };

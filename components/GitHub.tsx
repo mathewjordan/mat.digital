@@ -30,7 +30,6 @@ export const Path = styled("path", {
 });
 
 export const Underline = styled("path", {
-  fill: "$slate9",
   transform: "scaleX(0)",
   transition: "$all",
 });
@@ -38,11 +37,11 @@ export const Underline = styled("path", {
 export const GitHubStyled = styled("svg", {
   height: "calc($gr4 - 8px)",
   margin: "$gr5 0 $gr4 -$gr1",
-  fill: "$slate12",
+  fill: "$amber12",
   transition: "$all",
 
   "&:hover": {
-    fill: "$indigo11",
+    fill: "$amber11",
 
     [`> ${Underline}`]: {
       fill: "inherit",
