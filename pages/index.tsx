@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Container from "../components/Container";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import InlineHeading from "../components/Heading";
 import Section from "../components/Section";
 

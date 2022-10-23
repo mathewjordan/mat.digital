@@ -24,7 +24,7 @@ const defaults = {
 
   html: {
     fontFamily: "$sans",
-    fontSize: "16px",
+    fontSize: "19px",
     fontSmooth: "always",
     webKitFontSmothing: "antialiased",
     mozOsxFontSmoth: "grayscale",
