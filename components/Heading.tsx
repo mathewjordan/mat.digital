@@ -1,7 +1,7 @@
 import { styled } from "../stitches";
 
 interface HeadingProps {
-  as?: "h2" | "h3" | "h4" | "h5" | "span";
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "span";
   children: React.ReactNode;
   isBold?: boolean;
 }

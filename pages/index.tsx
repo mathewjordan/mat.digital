@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Mat Jordan</title>
+        <title>Mat Jordan - Designer & Developer</title>
         <meta name="description" content="Mat Jordan - Designer & Developer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -37,9 +37,9 @@ const Home: NextPage = () => {
             </p>
             <p>
               When not ruminating in the office, I am likely to be found
-              avoiding technology, tending a bonsai garden, backpacking the Blue
-              Ridge Mountains, cooking, reading, and learning to become the best
-              parent I can be.
+              avoiding technology, tending my garden, backpacking the Blue Ridge
+              Mountains, cooking, reading, and learning to become the best
+              partner and parent I can be.
             </p>
           </Section>
         </Container>

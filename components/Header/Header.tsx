@@ -4,25 +4,37 @@ import Signature from "./Signature";
 import ThemeMode from "./ThemeMode";
 import Navigation from "../Navigation/Navigation";
 
-const Header = () => {
+interface HeaderProps {
+  navigation?: boolean;
+  isSignatureHeading?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({
+  navigation = true,
+  isSignatureHeading = true,
+}) => {
   return (
     <HeaderStyled>
-      <Link href="/">
-        <a>
-          <Signature />
-        </a>
-      </Link>
-      <HeaderContent>
-        <Navigation>
-          <Navigation.Link
-            href="https://github.com/mathewjordan"
-            target="_blank"
-          >
-            Github
-          </Navigation.Link>
-        </Navigation>
-        <ThemeMode />
-      </HeaderContent>
+      <HeaderSignatureWrapper as={isSignatureHeading ? "h1" : "span"}>
+        <Link href="/">
+          <a>
+            <Signature />
+          </a>
+        </Link>
+      </HeaderSignatureWrapper>
+      {navigation && (
+        <HeaderContent>
+          <Navigation>
+            <Navigation.Link
+              href="https://github.com/mathewjordan"
+              target="_blank"
+            >
+              Github
+            </Navigation.Link>
+          </Navigation>
+          <ThemeMode />
+        </HeaderContent>
+      )}
     </HeaderStyled>
   );
 };
@@ -31,6 +43,11 @@ export const HeaderStyled = styled("header", {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+});
+
+export const HeaderSignatureWrapper = styled("span", {
+  margin: "0",
+  padding: "0",
 });
 
 export const HeaderContent = styled("header", {
