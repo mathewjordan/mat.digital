@@ -4,7 +4,7 @@ import Signature from "./Signature";
 import ThemeMode from "./ThemeMode";
 import Navigation from "../Navigation/Navigation";
 
-const Header = ({}) => {
+const Header = () => {
   return (
     <HeaderStyled>
       <Link href="/">

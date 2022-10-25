@@ -1,3 +1,4 @@
+import { indigo } from "@radix-ui/colors";
 import { globalCss } from "@stitches/react";
 
 const defaults = {

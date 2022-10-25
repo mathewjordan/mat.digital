@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import Underlay from "../components/Underlay";
 
 export default function Document() {
   return (

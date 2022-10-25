@@ -3,9 +3,14 @@ import { ThemeProvider } from "next-themes";
 import globalStyles from "../styles/global";
 import { darkTheme } from "../stitches";
 import Underlay from "../components/Underlay";
+import { useEffect, useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <ThemeProvider
@@ -16,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         light: "light",
       }}
     >
-      <Component {...pageProps} />
+      {mounted && <Component {...pageProps} />}
       <Underlay />
     </ThemeProvider>
   );
