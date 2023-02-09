@@ -3,6 +3,7 @@ import Link from "next/link";
 import Signature from "./Signature";
 import ThemeMode from "./ThemeMode";
 import Navigation from "../Navigation/Navigation";
+import GithubCode from "./Code";
 
 interface HeaderProps {
   navigation?: boolean;
@@ -29,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({
               href="https://github.com/mathewjordan"
               target="_blank"
             >
-              Github
+              <GithubCode />
             </Navigation.Link>
           </Navigation>
           <ThemeMode />

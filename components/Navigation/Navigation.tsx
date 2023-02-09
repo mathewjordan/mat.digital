@@ -16,11 +16,11 @@ const Navigation: React.FC<NavigationProps> & NavigationComposition = ({
 };
 
 export const NavigationStyled = styled("nav", {
-  padding: "$gr2 $gr5 $gr1",
+  padding: "$gr2 $gr4 $gr1",
   transition: "$all",
 
   "@md": {
-    padding: "$gr2 $gr4 $gr1",
+    padding: "$gr2 $gr3 $gr1",
   },
 });
 
