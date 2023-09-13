@@ -33,7 +33,7 @@ const Home: NextPage = () => {
               pestle.&rdquo; I currently live in Asheville, North Carolina,
               United States, and work for Northwestern University Libraries,
               where I contribute to open-source software that enhance digital
-              archives.
+              collections and scholarship.
             </p>
             <p>
               When not ruminating in the office, I am likely to be found
