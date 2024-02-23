@@ -1,6 +1,7 @@
 import { Box, Card, Flex, Heading, Inset, Link, Text } from "@radix-ui/themes";
 
 import React from "react";
+// @ts-ignore
 import { Thumbnail } from "@samvera/clover-iiif/primitives";
 
 interface InsetCardProps {
@@ -19,7 +20,7 @@ const InsetCard: React.FC<InsetCardProps> = ({
   type = "image",
 }) => {
   return (
-    <Card size="4">
+    <Card size="4" style={{ backgroundColor: "var(--accent-1)" }}>
       <Flex gap="6">
         <Inset
           side="left"
@@ -40,8 +41,7 @@ const InsetCard: React.FC<InsetCardProps> = ({
               position: "absolute",
               filter:
                 "opacity(0.6) grayscale(0.9) contrast(1.382) brightness(1.382)",
-              maskImage:
-                "linear-gradient(310deg, #0003 10%, #000 25%, #000c 100%)",
+              maskImage: "linear-gradient(310deg, #0009 0%, #000 20%)",
             }}
           >
             {type === "video" ? (

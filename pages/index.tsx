@@ -57,7 +57,7 @@ const Home: NextPage = () => {
                 best partner and parent I can be.
               </Text>
               <Box my="7">
-                <Flex direction="column" gap="5">
+                <Flex direction="column" gap="6">
                   <InsetCard
                     href="https://dc.library.northwestern.edu"
                     imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/a1532579-8907-45d9-ad88-34587700dbd8/1195,195,2667,2574/500,500/0/default.jpg"
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
                   >
                     <Text>
                       A website providing thousands of cultural heritage
-                      materials from Northwestern University Libraries'
+                      materials from Northwestern University Libraries&apos;
                       distinctive collections. Powered by Next.js and IIIF
                       resources delivered from the Northwestern Digital
                       Collections API.

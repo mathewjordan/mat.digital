@@ -5,7 +5,7 @@ const Signature = () => {
       viewBox="0 0 529.53 159.77"
       role="heading"
       style={{
-        fill: "var(--accent-10)",
+        fill: "var(--accent-11)",
         width: "138.2px",
       }}
     >

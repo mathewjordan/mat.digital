@@ -14,22 +14,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => setMounted(true), []);
 
   const themeProps: ThemeProps = {
-    accentColor: "gold",
-    grayColor: "sand",
-    scaling: "100%",
+    accentColor: "indigo",
+    grayColor: "slate",
     radius: "small",
   };
 
   return (
     <>
       {mounted && (
-        <ThemeProvider attribute="class">
-          <Theme {...themeProps}>
-            <Transition>
-              <Component {...pageProps} />
-            </Transition>
-          </Theme>
-        </ThemeProvider>
+        <Theme {...themeProps}>
+          <Transition>
+            <Component {...pageProps} />
+          </Transition>
+        </Theme>
       )}
     </>
   );
