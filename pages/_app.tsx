@@ -1,34 +1,37 @@
-import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
-import globalStyles from "../styles/global";
-import { darkTheme } from "../stitches";
-import Transition from "../components/Transition";
-import Underlay from "../components/Underlay";
+import "@radix-ui/themes/styles.css";
+
 import { useEffect, useState } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles();
+import type { AppProps } from "next/app";
+import { Theme } from "@radix-ui/themes";
+import { ThemeProps } from "@radix-ui/themes/dist/cjs/theme";
+import { ThemeProvider } from "next-themes";
+import Transition from "../components/Transition";
 
+function MyApp({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
+  const themeProps: ThemeProps = {
+    accentColor: "gold",
+    grayColor: "sand",
+    scaling: "100%",
+    radius: "small",
+  };
+
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      value={{
-        dark: darkTheme.className,
-        light: "light",
-      }}
-    >
-      <Underlay />
+    <>
       {mounted && (
-        <Transition>
-          <Component {...pageProps} />
-        </Transition>
+        <ThemeProvider attribute="class">
+          <Theme {...themeProps}>
+            <Transition>
+              <Component {...pageProps} />
+            </Transition>
+          </Theme>
+        </ThemeProvider>
       )}
-    </ThemeProvider>
+    </>
   );
 }
 

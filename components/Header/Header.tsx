@@ -1,60 +1,24 @@
-import { styled } from "../../stitches";
-import Link from "next/link";
+import { Box, Flex, Heading, Link } from "@radix-ui/themes";
+
 import Signature from "./Signature";
-import ThemeMode from "./ThemeMode";
-import Navigation from "../Navigation/Navigation";
-import GithubCode from "./Code";
 
-interface HeaderProps {
-  navigation?: boolean;
-  isSignatureHeading?: boolean;
-}
-
-const Header: React.FC<HeaderProps> = ({
-  navigation = true,
-  isSignatureHeading = true,
-}) => {
+const Header: React.FC = () => {
   return (
-    <HeaderStyled>
-      <HeaderSignatureWrapper as={isSignatureHeading ? "h1" : "span"}>
-        <Link href="/">
-          <a>
+    <Box asChild mb="6">
+      <header>
+        <Flex gap="5" justify="between">
+          <Heading size="1" trim="both">
             <Signature />
-          </a>
-        </Link>
-      </HeaderSignatureWrapper>
-      {navigation && (
-        <HeaderContent>
-          <Navigation>
-            <Navigation.Link
-              href="https://github.com/mathewjordan"
-              target="_blank"
-            >
-              <GithubCode />
-            </Navigation.Link>
-          </Navigation>
-          <ThemeMode />
-        </HeaderContent>
-      )}
-    </HeaderStyled>
+          </Heading>
+          <Flex gap="4">
+            <Link href="https://github.com/mathewjordan" target="_blank">
+              Code
+            </Link>
+          </Flex>
+        </Flex>
+      </header>
+    </Box>
   );
 };
-
-export const HeaderStyled = styled("header", {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
-
-export const HeaderSignatureWrapper = styled("span", {
-  margin: "0",
-  padding: "0",
-});
-
-export const HeaderContent = styled("header", {
-  display: "flex",
-  justifyContent: "flex-end",
-  alignItems: "center",
-});
 
 export default Header;
