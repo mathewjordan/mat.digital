@@ -39,8 +39,8 @@ const Home: NextPage = () => {
                 </Text>
               </Box>
               <Text>
-                I am designer and developer originally from the state of Idaho
-                in the United States. <em>Latah</em> is a{" "}
+                I am designer and developer originally from the Latah County,
+                Idaho, in the United States. <em>Latah</em> is a{" "}
                 <Link href="https://www.wikidata.org/wiki/Q1123923">
                   <a target="_blank">Nez Percé</a>
                 </Link>
