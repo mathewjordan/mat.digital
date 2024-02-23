@@ -8,6 +8,7 @@ interface InsetCardProps {
   children: React.ReactNode;
   href: string;
   imageSrc: string;
+  side?: "left" | "right";
   title: string;
   type?: "image" | "video";
 }
@@ -16,19 +17,26 @@ const InsetCard: React.FC<InsetCardProps> = ({
   children,
   href,
   imageSrc,
+  side = "left",
   title,
   type = "image",
 }) => {
   return (
-    <Card size="4" style={{ backgroundColor: "var(--accent-1)" }}>
-      <Flex gap="6">
+    <Card
+      size="4"
+      style={{
+        backgroundColor: "var(--accent-a2)",
+      }}
+      variant="surface"
+    >
+      <Flex gap="6" direction={side === "left" ? "row" : "row-reverse"}>
         <Inset
-          side="left"
+          side={side}
           style={{
             width: "200px",
             minHeight: "200px",
             flexShrink: 0,
-            backgroundColor: "var(--accent-6)",
+            backgroundColor: "var(--accent-10)",
             position: "relative",
           }}
         >
@@ -40,8 +48,8 @@ const InsetCard: React.FC<InsetCardProps> = ({
               height: "100%",
               position: "absolute",
               filter:
-                "opacity(0.6) grayscale(0.9) contrast(1.382) brightness(1.382)",
-              maskImage: "linear-gradient(310deg, #0009 0%, #000 20%)",
+                "opacity(0.618) sepia(0.382) contrast(1.382) brightness(1.382)",
+              maskImage: "linear-gradient(310deg, #000c 0%, #000 20%)",
             }}
           >
             {type === "video" ? (
@@ -79,7 +87,7 @@ const InsetCard: React.FC<InsetCardProps> = ({
           </Box>
         </Inset>
         <Text>
-          <Heading as="h3" weight="medium" size="4" mb="3">
+          <Heading as="h3" weight="medium" size="5" mb="3">
             <Link href={href} target="_blank">
               {title}
             </Link>

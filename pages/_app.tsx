@@ -21,13 +21,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      {mounted && (
-        <Theme {...themeProps}>
-          <Transition>
-            <Component {...pageProps} />
-          </Transition>
-        </Theme>
-      )}
+      <ThemeProvider attribute="class">
+        {mounted && (
+          <Theme {...themeProps}>
+            <Transition>
+              <Component {...pageProps} />
+            </Transition>
+          </Theme>
+        )}
+      </ThemeProvider>
     </>
   );
 }

@@ -76,14 +76,14 @@ const Home: NextPage = () => {
                     imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/84530412-0dad-408d-b0f0-fc787b677bdb/190,190,1870,1870/500,500/0/default.jpg"
                     title="Clover IIIF"
                     type="video"
+                    side="right"
                   >
                     <Text>
-                      A UI component library designed for quickly developing
-                      accessible, high-quality web interfaces that are fluent in
-                      IIIF. It features an A/V capable IIIF Viewer and other
-                      components tailored to the IIIF Presentation 3.0 API,
-                      emphasizing accessibility, customization, and a positive
-                      developer experience.
+                      An open-source UI component library designed for quickly
+                      developing high-quality and accessible web interfaces that
+                      are fluent in IIIF. It features an A/V capable IIIF Viewer
+                      and other components tailored to the IIIF Presentation
+                      API.
                     </Text>
                   </InsetCard>
                   <InsetCard
