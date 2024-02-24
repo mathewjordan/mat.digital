@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     accentColor: "indigo",
     grayColor: "slate",
     radius: "small",
+    scaling: "110%",
   };
 
   return (

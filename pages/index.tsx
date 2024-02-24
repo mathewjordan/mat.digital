@@ -27,8 +27,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Container size="2">
-          <Section size="3">
+        <Section size="3">
+          <Container size="2">
             <Header />
             <Flex gap="3" direction="column">
               <Box mb="5">
@@ -56,53 +56,52 @@ const Home: NextPage = () => {
                 Ridge Mountains, cooking, reading, and learning to become the
                 best partner and parent I can be.
               </Text>
-              <Box my="7">
-                <Flex direction="column" gap="6">
-                  <InsetCard
-                    href="https://dc.library.northwestern.edu"
-                    imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/a1532579-8907-45d9-ad88-34587700dbd8/1195,195,2667,2574/500,500/0/default.jpg"
-                    title="Northwestern Digital Collections"
-                  >
-                    <Text>
-                      A website providing thousands of cultural heritage
-                      materials from Northwestern University Libraries&apos;
-                      distinctive collections. Powered by Next.js and IIIF
-                      resources delivered from the Northwestern Digital
-                      Collections API.
-                    </Text>
-                  </InsetCard>
-                  <InsetCard
-                    href="https://samvera-labs.github.io/clover-iiif/"
-                    imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/84530412-0dad-408d-b0f0-fc787b677bdb/190,190,1870,1870/500,500/0/default.jpg"
-                    title="Clover IIIF"
-                    type="video"
-                    side="right"
-                  >
-                    <Text>
-                      An open-source UI component library designed for quickly
-                      developing high-quality and accessible web interfaces that
-                      are fluent in IIIF. It features an A/V capable IIIF Viewer
-                      and other components tailored to the IIIF Presentation
-                      API.
-                    </Text>
-                  </InsetCard>
-                  <InsetCard
-                    href="https://canopy-iiif.github.io/docs/"
-                    imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/84530412-0dad-408d-b0f0-fc787b677bdb/190,190,1870,1870/500,500/0/default.jpg"
-                    title="Canopy IIIF"
-                  >
-                    <Text>
-                      An open-source static site generator designed for fast
-                      creation, contextualization, and customization of a
-                      discovery-focused digital scholarship and collections
-                      website using IIIF APIs.
-                    </Text>
-                  </InsetCard>
-                </Flex>
-              </Box>
             </Flex>
-          </Section>
-        </Container>
+          </Container>
+
+          <Box my="9">
+            <Flex direction="column">
+              <InsetCard
+                href="https://samvera-labs.github.io/clover-iiif/"
+                imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/84530412-0dad-408d-b0f0-fc787b677bdb/190,190,1870,1870/500,500/0/default.jpg"
+                title="Clover IIIF"
+                type="video"
+              >
+                <Text>
+                  An open-source UI component library designed for quickly
+                  developing high-quality and accessible web interfaces that are
+                  fluent in IIIF. It features an A/V capable IIIF Viewer and
+                  other components tailored to the IIIF Presentation API.
+                </Text>
+              </InsetCard>
+              <InsetCard
+                href="https://canopy-iiif.github.io/docs/"
+                imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/146f9772-829c-4254-a9d1-ba8175efc071/287,287,3819,2749/1000,/0/default.jpg"
+                title="Canopy IIIF"
+                side="right"
+              >
+                <Text>
+                  An open-source static site generator designed for fast
+                  creation, contextualization, and customization of a
+                  discovery-focused digital scholarship and collections website
+                  using IIIF APIs.
+                </Text>
+              </InsetCard>
+              <InsetCard
+                href="https://dc.library.northwestern.edu"
+                imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/a1532579-8907-45d9-ad88-34587700dbd8/1195,195,2667,2574/500,500/0/default.jpg"
+                title="Northwestern Digital Collections"
+              >
+                <Text>
+                  A website providing thousands of cultural heritage materials
+                  from Northwestern University Libraries&apos; distinctive
+                  collections. Powered by Next.js and IIIF resources delivered
+                  from the Northwestern Digital Collections API.
+                </Text>
+              </InsetCard>
+            </Flex>
+          </Box>
+        </Section>
         <Underlay />
       </main>
     </>
