@@ -89,7 +89,7 @@ const Home: NextPage = () => {
               </InsetCard>
               <InsetCard
                 href="https://dc.library.northwestern.edu"
-                imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/a1532579-8907-45d9-ad88-34587700dbd8/1195,195,2667,2574/500,500/0/default.jpg"
+                imageSrc="https://iiif.dc.library.northwestern.edu/iiif/2/18c68c24-8b9e-421a-8b52-ce339600f3f4/full/1000,/0/default.jpg"
                 title="Northwestern Digital Collections"
               >
                 <Text>

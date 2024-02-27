@@ -1,13 +1,4 @@
-import {
-  Box,
-  Card,
-  Container,
-  Flex,
-  Heading,
-  Inset,
-  Link,
-  Text,
-} from "@radix-ui/themes";
+import { Box, Container, Flex, Heading, Link, Text } from "@radix-ui/themes";
 
 import React from "react";
 // @ts-ignore
@@ -51,8 +42,9 @@ const InsetCard: React.FC<InsetCardProps> = ({
           position: "absolute",
           right: side === "right" ? "0" : "auto",
           left: side === "left" ? "0" : "auto",
-          filter: "opacity(0.382) sepia(1) contrast(1.382) brightness(0.618)",
-          maskImage: `linear-gradient(${deg}, transparent 5%, #000 100%)`,
+          filter:
+            "opacity(0.382) grayscale(1) contrast(1.382) brightness(1.382)",
+          maskImage: `linear-gradient(${deg}, transparent 0%, #0001 38.2%, #000 100%)`,
         }}
       >
         {type === "video" ? (
