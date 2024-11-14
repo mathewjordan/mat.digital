@@ -15,12 +15,19 @@
     "plugins": [
       {
         "name": "next"
-      }
+      },
+      { "name": "@tokenami/ts-plugin" }
     ],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".tokenami/tokenami.env.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
