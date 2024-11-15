@@ -1,5 +1,6 @@
 import { Heading, Text } from "@radix-ui/themes";
 
+import fs from "fs";
 import { getMarkdown } from "@/lib/markdown-helpers";
 import { getPosts } from "@/lib/post-helpers";
 
@@ -11,7 +12,15 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: { params: { slug: string } }) {
-  const path = "content/posts/" + params.slug + ".mdx";
+  const extensions = [".mdx", ".md"];
+  const path = extensions
+    .map((ext) => `content/posts/${params.slug}${ext}`)
+    .find((filePath) => fs.existsSync(filePath));
+
+  if (!path) {
+    throw new Error(`Post not found for slug: ${params.slug}`);
+  }
+
   const markdown = await getMarkdown(path);
 
   // @ts-ignore
