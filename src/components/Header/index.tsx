@@ -1,9 +1,17 @@
-import { Container, Flex, Link, Section, Text } from "@radix-ui/themes";
+import {
+  Container,
+  Flex,
+  Link,
+  Section,
+  Text,
+  ThickChevronRightIcon,
+} from "@radix-ui/themes";
 import {
   EnvelopeClosedIcon,
   EnvelopeOpenIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
+  ThickArrowRightIcon,
 } from "@radix-ui/react-icons";
 
 import Figure from "../UI/Figure";
@@ -32,10 +40,7 @@ export default function Header() {
                   href="/"
                   style={{ color: "var(--gray-12)", textDecoration: "none" }}
                 >
-                  {/* <ThickChevronRightIcon
-                    style={{ color: "var(--accent-10)" }}
-                  /> */}
-                  <Text weight="bold">Mat Jordan</Text>
+                  Mat Jordan
                 </UILink>
               </Flex>
               <Flex gap="3" align="center">

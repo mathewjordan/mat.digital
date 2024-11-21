@@ -11,7 +11,7 @@ interface UILinkProps extends LinkProps {
 
 const UILink: React.FC<UILinkProps> = (props) => {
   return (
-    <RadixThemesLink underline="hover" asChild>
+    <RadixThemesLink underline="always" asChild>
       <NextLink {...props} />
     </RadixThemesLink>
   );
