@@ -4,7 +4,6 @@ import { Box, Card, Flex, Heading, Inset, Text } from "@radix-ui/themes";
 import { GitHubLogoIcon, Link1Icon } from "@radix-ui/react-icons";
 
 import Image from "next/image";
-import { PrimitivesThumbnail } from "@samvera/clover-iiif";
 import React from "react";
 import { Thumbnail } from "@samvera/clover-iiif/primitives";
 import UILink from "../Link";
@@ -42,8 +41,7 @@ const UIProject: React.FC<UIProjectProps> = ({
               overflow: "hidden",
               borderRadius: "50%",
               position: "relative",
-              boxShadow: "var(--shadow-4)",
-              opacity: 0.382,
+              backgroundColor: "var(--gray-1)",
             }}
             className="project-inset"
           >
@@ -51,18 +49,26 @@ const UIProject: React.FC<UIProjectProps> = ({
               <Image
                 src={thumbnail[0].id}
                 alt=""
-                width={60}
-                height={60}
+                width={120}
+                height={120}
                 style={{
                   objectFit: "cover",
+                  opacity: 0.618,
                 }}
               />
             ) : (
-              <Thumbnail thumbnail={thumbnail} />
+              <span
+                style={{
+                  filter: "brightness(0.618) contrast(0.9)",
+                  opacity: 0.618,
+                }}
+              >
+                <Thumbnail thumbnail={thumbnail} />
+              </span>
             )}
           </Inset>
           <Box>
-            <Heading as="h3" size="5">
+            <Heading as="h3" size="5" weight="regular">
               {title}
             </Heading>
             <Flex gap="4" asChild mt="2" align="center" wrap="wrap">

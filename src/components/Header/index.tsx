@@ -20,13 +20,9 @@ import UILink from "../UI/Link";
 export default function Header() {
   return (
     <>
-      <Figure />
       <Section
         asChild
-        size="1"
-        style={{
-          marginBottom: "300px",
-        }}
+        size="2"
         mx={{
           initial: "5",
           md: "0",
@@ -38,7 +34,7 @@ export default function Header() {
               <Flex align="center" gap="2" asChild>
                 <UILink
                   href="/"
-                  style={{ color: "var(--gray-12)", textDecoration: "none" }}
+                  style={{ color: "var(--gray-11)", textDecoration: "none" }}
                 >
                   Mat Jordan
                 </UILink>
@@ -49,21 +45,21 @@ export default function Header() {
                   target="_blank"
                   rel="nofollow"
                 >
-                  <GitHubLogoIcon color="var(--gray-12)" />
+                  <GitHubLogoIcon color="var(--gray-11)" />
                 </Link>
                 <Link
                   href="https://www.linkedin.com/in/mathewjordan/"
                   target="_blank"
                   rel="nofollow"
                 >
-                  <LinkedInLogoIcon color="var(--gray-12)" />
+                  <LinkedInLogoIcon color="var(--gray-11)" />
                 </Link>
                 <Link
                   href="mailto:mat@northwestern.edu"
                   target="_blank"
                   rel="nofollow"
                 >
-                  <EnvelopeClosedIcon color="var(--gray-12)" />
+                  <EnvelopeClosedIcon color="var(--gray-11)" />
                 </Link>
               </Flex>
             </Flex>
