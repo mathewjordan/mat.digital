@@ -3,22 +3,31 @@ import { Heading, Text } from "@radix-ui/themes";
 import fs from "fs";
 import { getMarkdown } from "@/lib/markdown-helpers";
 import { getPosts } from "@/lib/post-helpers";
+import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  const posts = await getPosts();
-  return posts.map((post) => {
-    return { slug: post.slug };
-  });
+const PLACEHOLDER_SLUG = "__placeholder__";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const posts = getPosts();
+  if (posts.length === 0) {
+    return [{ slug: PLACEHOLDER_SLUG }];
+  }
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function Post({ params }: { params: { slug: string } }) {
+  if (params.slug === PLACEHOLDER_SLUG) {
+    notFound();
+  }
   const extensions = [".mdx", ".md"];
   const path = extensions
     .map((ext) => `content/posts/${params.slug}${ext}`)
     .find((filePath) => fs.existsSync(filePath));
 
   if (!path) {
-    throw new Error(`Post not found for slug: ${params.slug}`);
+    notFound();
   }
 
   const markdown = await getMarkdown(path);

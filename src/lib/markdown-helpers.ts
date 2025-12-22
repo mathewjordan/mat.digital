@@ -5,10 +5,20 @@ import UIProject from "@/components/UI/Project";
 import { compileMDX } from "next-mdx-remote/rsc";
 import fs from "fs";
 import mdxComponents from "@/components/mdx-components";
+import path from "path";
 
-export async function getMarkdown(path: string) {
+function resolvePath(filePath: string) {
+  return path.isAbsolute(filePath)
+    ? filePath
+    : path.join(process.cwd(), filePath);
+}
+
+export async function getMarkdown(filePath: string) {
   try {
-    const source = fs.readFileSync(path, {}).toString();
+    const resolvedPath = resolvePath(filePath);
+    const source = fs.readFileSync(resolvedPath, {
+      encoding: "utf-8",
+    });
     return await compileMDX({
       source,
       options: { parseFrontmatter: true },
@@ -21,7 +31,11 @@ export async function getMarkdown(path: string) {
       },
     });
   } catch (err) {
-    console.error(`${path} not found.`);
+    console.error(
+      `Failed to read ${filePath} (${resolvePath(filePath)}): ${(
+        err as Error
+      ).message}`
+    );
     return;
   }
 }
