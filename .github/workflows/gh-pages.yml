@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ALLOW_INDEXING: ${{ vars.ALLOW_INDEXING || 'false' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

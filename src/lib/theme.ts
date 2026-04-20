@@ -1,7 +1,9 @@
-import { ThemeProps } from "@radix-ui/themes";
+import {ThemeProps} from "@radix-ui/themes";
 
 export const theme: ThemeProps = {
-  accentColor: "iris",
   appearance: "dark",
+  accentColor: "iris",
+  grayColor: "mauve",
   radius: "small",
+  scaling: "95%",
 };

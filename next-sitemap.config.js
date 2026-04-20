@@ -1,3 +1,5 @@
+const allowIndexing = process.env.ALLOW_INDEXING === "true";
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || "https://mat.digital",
@@ -7,4 +9,9 @@ module.exports = {
   generateIndexSitemap: false,
   sitemapSize: 5000,
   outDir: "./out",
+  robotsTxtOptions: {
+    policies: allowIndexing
+      ? [{ userAgent: "*", allow: "/" }]
+      : [{ userAgent: "*", disallow: "/" }],
+  },
 };

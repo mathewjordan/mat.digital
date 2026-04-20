@@ -24,3 +24,4 @@ best partner and parent I can be.
 - `next-sitemap` runs automatically after the build and writes directly into `out/`, so sitemaps and robots.txt are part of the published artifact.
 - `.github/workflows/gh-pages.yml` installs dependencies, runs the build, uploads `out/`, and deploys the result with `actions/deploy-pages` whenever `main` changes or the workflow is dispatched manually.
 - In the repository settings, ensure **Pages → Source** is set to **GitHub Actions** and configure a custom domain (`mat.digital`) if desired.
+- Crawling is disabled by default via `ALLOW_INDEXING` (see `next-sitemap.config.js`). Set a repository variable named `ALLOW_INDEXING` to `true` in GitHub for the production site so robots.txt allows all agents; leave it unset in templates/derivatives to ship with a `Disallow: /` robots file.
