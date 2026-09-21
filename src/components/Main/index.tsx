@@ -5,7 +5,7 @@ export default function Main({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Section size="1" asChild>
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Container size="2">{children}</Container>
       </main>
     </Section>

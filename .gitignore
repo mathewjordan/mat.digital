@@ -38,3 +38,6 @@ next-env.d.ts
 # seo
 /public/robots.txt
 /public/sitemap*
+
+# working notes, not published
+/docs/

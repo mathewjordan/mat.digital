@@ -4,6 +4,9 @@
 I’m a designer and developer at Northwestern University living in Asheville, North Carolina. When not ruminating in the office, I’m likely avoiding technology; hands in the dirt; feet on a trail; a book in one hand, a spatula in the other; or trying, always, to be a better partner and parent.
 
 </Section>
+
+<RecentPosts />
+
 <Section size="1">
 
 ## Work
@@ -14,7 +17,7 @@ At Northwestern University Libraries, I work with an outstanding team creating p
 
 <Box my="5">
 <Tabs.Root defaultValue="current">
-  <Tabs.List size="2">
+  <Tabs.List size="2" aria-label="Work history">
     <Tabs.Trigger value="current">Current</Tabs.Trigger>
     <Tabs.Trigger value="past">Past</Tabs.Trigger>
   </Tabs.List>
@@ -27,13 +30,6 @@ At Northwestern University Libraries, I work with an outstanding team creating p
           href="https://nulib-ds.github.io/canopy/"
           hrefLabel="nulib-ds.github.io/canopy"
           repository="https://github.com/nulib-ds/canopy"
-          thumbnail={[
-                      {
-                        format: "image/jpg",
-                        id: "https://iiif.dc.library.northwestern.edu/iiif/3/3b5b9e50-46a8-49b3-9664-6ca5ab78c5f7/2200,800,2800,2800/600,/0/default.jpg",
-                        type: "Image",
-                      },
-                    ]}
           >
           An open-source static site generator for building discovery-focused websites around IIIF collections and digital scholarship.
         </UIProject>
@@ -43,13 +39,6 @@ At Northwestern University Libraries, I work with an outstanding team creating p
           href="https://samvera-labs.github.io/clover-iiif/"
           hrefLabel="samvera-labs.github.io/clover-iiif"
           repository="https://github.com/samvera-labs/clover-iiif"
-          thumbnail={[
-                      {
-                        format: "image/jpg",
-                        id: "https://iiif.dc.library.northwestern.edu/iiif/3/44d0ad4d-6a0d-4632-82a3-b6ab8fd4e5b7/full/1000,/0/default.jpg",
-                        type: "Image",
-                      },
-                    ]}
           >
           An open-source React component library for building accessible web interfaces fluent in IIIF. Includes an A/V-capable viewer and other components built for the IIIF Presentation API.
         </UIProject>
@@ -59,14 +48,6 @@ At Northwestern University Libraries, I work with an outstanding team creating p
           href="https://dc.library.northwestern.edu/"
           hrefLabel="dc.library.northwestern.edu"
           repository="https://github.com/nulib/dc-nextjs"
-          thumbnail={[
-                      {
-                        duration: 30,
-                        format: "video/mp4",
-                        id: "https://meadow-streaming.rdc.library.northwestern.edu/5a/cc/f7/5f/-a/56/1-/4b/3c/-9/b4/5-/7d/cc/f7/03/90/e3/quality-medium/hls/74-110-2.m3u8#t=200,230",
-                        type: "Video",
-                      },
-                    ]}
           >
           A discovery platform for thousands of cultural heritage materials from Northwestern University Libraries. Built with Next.js and served through IIIF.
         </UIProject>
@@ -104,6 +85,6 @@ At Northwestern University Libraries, I work with an outstanding team creating p
 <Section size="1">
   ## Colophon
 
-This site is a static Next.js export with content written in Markdown. Components and styling from Radix Themes. Thumbnails served by Northwestern Digital Collections.
+This site is a static Next.js export with content written in Markdown. Components and styling from Radix Themes. Post thumbnails are generated from a source image as a grid of circles.
 
 </Section>

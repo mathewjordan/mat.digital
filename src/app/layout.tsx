@@ -12,6 +12,7 @@ import {ThemeProvider} from "next-themes";
 import {theme} from "@/lib/theme";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mat.digital"),
   title: "Mat Jordan - Designer and Developer",
   description: "Making complex things simple.",
 };
@@ -27,7 +28,7 @@ const sans = IBM_Plex_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-ibm-plex-sans",
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
 });
 
 export default function RootLayout({
@@ -36,10 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${mono.variable} ${sans.variable}`}>
+    <html lang="en" className={`${mono.variable} ${sans.variable}`} suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class">
+        <ThemeProvider attribute="class" forcedTheme="dark">
           <Theme {...theme}>
+            <a className="skip-link" href="#main-content">Skip to content</a>
             <Header />
             <Box
               mx={{

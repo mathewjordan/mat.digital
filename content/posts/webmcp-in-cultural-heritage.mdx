@@ -1,0 +1,70 @@
+---
+title: "WebMCP in Cultural Heritage: Access, UX, and Locus of Control"
+description: "How the new WebMCP specification connects cultural heritage to researchers in AI workspaces, impacts user experience, and expands access and control."
+date: "2026-09-19"
+draft: true
+thumbnail: "/thumbnails/webmcp-in-cultural-heritage.svg"
+---
+
+I had the pleasure of presenting our team's work last week at AI4LAM, hosted at the Library of Congress. Along with James Lee, Brendan Quinn, Kelsey Rydland (from afar), and Dean Xuemao Wang supporting in the crowd, we presented on how, after many years of work, we have landed on an [IIIF](https://iiif.io/) + [WebMCP](https://webmachinelearning.github.io/webmcp/) + [C2PA](https://spec.c2pa.org/) model for supporting our digital collections infrastructure on the web. The most discussed and asked-about of these three was the novel specification WebMCP, and what it means for the future of cultural heritage and the web in general. We should disambiguate and demystify this so we can easily bridge OUR material and consumer-level AI workspaces in the very near future. This bridge will direct web agents working on behalf of actual humans toward tools of our own designation, the resources we want them to see, and perhaps shift the balance of power a little on the metaphorical AI front lines.
+
+## What is WebMCP?
+
+I will intentionally not get into the nuts and bolts of this new tech. The most basic way to explain it is that it is a set of described tools at the ready in the underlayer of any webpage,[^api] allowing an AI agent acting on a user request and reaching that page to be purposefully directed to data or actions relating to that page. These tools allow that agent to more efficiently bypass the guessing of _scrounging_ the DOM for designed-for-human elements. Instead the agent works in an interface designed for it to make more educated decisions, and reach the information you want to provide to it. In a nice world, these tools would mirror the interactions made available to a human visiting in a browser. For example, if a search box is made available at the human document layer, a sibling WebMCP tool would be registered for that same search box in the agent underlayer. It's that simple.
+
+```mermaid
+flowchart TB
+    accTitle: Two users, one web page
+    accDescr: A researcher browses the human-facing document layer. Alongside them, an agent running inside an AI platform calls a WebMCP search tool on their behalf. Every connection runs both ways. A question travels down through the application logic to the cultural heritage material, and what it finds travels back up the same path to whoever asked.
+
+    human(["`**Human researcher**`"])
+
+    subgraph platform["AI platform"]
+        agent(["`**Agent(s)**`"])
+    end
+
+    subgraph webpage["Web page"]
+        interface["Human-facing document layer: search form and UI"]
+        tools["Agent-facing underlayer: WebMCP search tool"]
+        logic["Application logic & processes"]
+        interface <--> logic
+        tools <--> logic
+    end
+
+    human <-->|"`**(A) Direct interaction(s)**`"| interface
+    human <-->|"`**(B) User prompt(s)**`"| agent
+    agent <-->|"`*Acts on behalf of Human*`"| tools
+    logic <--> resources
+    resources@{ shape: docs, label: "Cultural Heritage material (IIIF)" }
+```
+
+A researcher reaches the page two ways: directly (A), or by prompting an AI platform (B), whose agent then works the page for them. Each way needs its own interface. We have built and refined the human-facing one for decades. The agent-facing one asks us to envision an efficient network of tools mirroring that same functionality.
+
+## Simplify our thinking
+
+There is no doubt that the collective "we" have confused and overcomplicated our approaches to using AI tooling as it relates to our materials. ChatGPT, Claude, and Gemini have all shifted human workspaces to easy-to-use clients and created an extra layer between our users and our materials. Meanwhile, many (including our experiments at Northwestern)[^aimode] have developed overcomplicated tooling that demands more advanced user knowledge, increases barriers, and ultimately may support only niche use cases. This is not going to win in the long run, and certainly won't be helpful to the vast majority. Let's note the parallels that the investment in these internally focused solutions has with the bespoke apps for iPhone and iPad (and other iThings) that many museums and universities developed in the early 2010s.[^apps] We see now that the clear winner was always simply the externally focused open web. For 30+ years, we have built websites, fine-tuned and optimized them for search engines, and readied them for users with our rich metadata. We built these atop a layer of resources provided for public knowledge, and have them at the ready as IIIF resources. Let's simply show user agents sent from ChatGPT and Claude clients how to find, read, and interact with these resources, essentially bringing the information to human researchers where they already are working.
+
+## User experience considerations
+
+Holistically built web presences are designed with user experience and discoverability in mind. We have historically optimized our websites to be crawled and indexed by bots working for search engines. However, unlike search engines, these new bots that we choose to call agents act on behalf of the human and are capable of levels of decision-making. We must now also refocus our websites as portals of knowledge in support of this new user type.
+
+| | Human user | Agent user |
+| --- | --- | --- |
+| Arrives from | A browser, by search or a link | A prompt in ChatGPT or Claude |
+| Works in | The document layer: search form and UI | The underlayer: described WebMCP tools |
+| Finds by | Menus, labels, and visual hierarchy | Tool names, descriptions, and defined inputs |
+| Spends | Time and attention | Tokens and response time |
+| Fails by | Getting lost, or giving up | Guessing, and scrounging the DOM |
+
+
+Agent users open up an entirely new realm of user experience considerations that, like web accessibility, span an infinite spectrum of nuance and practical solutions. These users are capable of modulating intelligence and effort level. This modulation has implications for token usage, response time, and accuracy of decision-making. Our WebMCP tool chains will need to be defined similarly to how websites have been architected with menus and user actions carefully designed for myriad humans in the browser. How we define our tools should seek to meet the wide array of prompts a human may ask of our resources. Defining these with efficiency will provide a better experience to the agent, but more importantly, to the human at the other end seeking to interact with our material. If we can finesse our WebMCP tools correctly, human users can accurately and quickly access the material from Claude and ChatGPT clients, directly receiving the exact information and answers they sought.
+
+## Locus of control
+
+ChatGPT and Claude clients are actively hitting our resources to find answers. In this act of knowledge exchange, we can choose to refocus where we stand in this agentic era. Users en masse will continue to search open-endedly on portals that are not ours, but somehow find their way to our material. Simply letting these clients bombard our websites for this material is akin to giving in to information seeking as scraping and spikes. We need to understand that we do hold power as sources of knowledge, and must shift our heads and resources a bit to make sure the material provided is given over responsibly, the same way we would to any other patron. When we do that, we realize we do have some say in this exchange. It's not simply that this is happening to us, but that we are still playing the part of preserver and provider of knowledge, as we always have. WebMCP is but one way to do this, and perhaps the easiest and most important one any of our institutions can enact right now and be ready for this shifting landscape.
+
+[^api]: Concretely, this is the imperative API: a page registers its tools on [`document.modelContext`](https://developer.chrome.com/docs/ai/webmcp/imperative-api), and an AI platform such as ChatGPT or Claude discovers them with `getTools()` and runs them with `executeTool()`.
+
+[^apps]: Keith Schneider, ["The Best Tour Guide May Be in Your Purse"](https://www.nytimes.com/2010/03/18/arts/artsspecial/18SMART.html), The New York Times, March 2010. SFMOMA marked its 75th anniversary by handing visitors iPod Touches loaded with five hours of content on 200 works, and the article notes "almost every major art museum in the country" following in step. The same pattern is visible today in the heavy investment in chatbots and rigid MCP servers built around closed vector data.
+
+[^aimode]: Northwestern's [Digital Collections](https://dc.library.northwestern.edu/) released an "AI Mode" chatbot of our own making in the summer of 2024. It asks a researcher to come to our site, log in, and learn its interface; it taxes our budget, because we pay for the tokens; and it answers only questions about our own set of data.

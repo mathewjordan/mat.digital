@@ -3,18 +3,13 @@ import {
   Flex,
   Link,
   Section,
-  Text,
-  ThickChevronRightIcon,
 } from "@radix-ui/themes";
 import {
   EnvelopeClosedIcon,
-  EnvelopeOpenIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
-  ThickArrowRightIcon,
 } from "@radix-ui/react-icons";
 
-import Figure from "../UI/Figure";
 import UILink from "../UI/Link";
 
 export default function Header() {
@@ -28,7 +23,7 @@ export default function Header() {
           md: "0",
         }}
       >
-        <header>
+        <header className="site-header">
           <Container size="2">
             <Flex justify="between" align="center">
               <Flex align="center" gap="2" asChild>
@@ -43,21 +38,24 @@ export default function Header() {
                 <Link
                   href="https://github.com/mathewjordan"
                   target="_blank"
-                  rel="nofollow"
+                  rel="me noopener noreferrer"
+                  aria-label="GitHub"
                 >
                   <GitHubLogoIcon color="var(--gray-11)" />
                 </Link>
                 <Link
                   href="https://www.linkedin.com/in/mathewjordan/"
                   target="_blank"
-                  rel="nofollow"
+                  rel="me noopener noreferrer"
+                  aria-label="LinkedIn"
                 >
                   <LinkedInLogoIcon color="var(--gray-11)" />
                 </Link>
                 <Link
                   href="mailto:mat@northwestern.edu"
                   target="_blank"
-                  rel="nofollow"
+                  rel="noopener noreferrer"
+                  aria-label="Email Mat"
                 >
                   <EnvelopeClosedIcon color="var(--gray-11)" />
                 </Link>

@@ -5,5 +5,5 @@ export const theme: ThemeProps = {
   accentColor: "iris",
   grayColor: "mauve",
   radius: "small",
-  scaling: "95%",
+  scaling: "105%",
 };

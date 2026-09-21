@@ -6,8 +6,64 @@ body {
   font-weight: 300;
 }
 
-.project-inset img,
-.project-inset video {
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 10;
+  padding: var(--space-3) var(--space-4);
+  background: var(--gray-1);
+  color: var(--accent-11);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.all-posts-link,
+.project-links a,
+.post-back,
+.post-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.all-posts-link {
+  white-space: nowrap;
+}
+
+.project-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.project-links svg {
+  flex-shrink: 0;
+}
+
+.project-inset img {
   width: 100%;
   height: 100%;
   border-radius: inherit;
@@ -16,10 +72,421 @@ body {
   mix-blend-mode: screen !important;
 }
 
+.project-placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--gray-11);
+  background: var(--gray-3);
+}
+
 .radix-themes {
   --default-font-family: var(--font-ibm-plex-sans), sans-serif;
   --heading-font-family: var(--font-ibm-plex-sans), sans-serif;
   --code-font-family: var(--font-ibm-plex-mono), mono;
   --em-font-family: var(--font-ibm-plex-sans), sans-serif;
   font-weight: inherit;
+}
+
+.post-list {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+.post-card p,
+.post-description {
+  line-height: 1.65;
+}
+
+.post-description {
+  color: var(--amber-11);
+}
+
+.post-header h1.rt-Heading {
+  font-size: clamp(2rem, 1.25rem + 3.2vw, 3.25rem);
+  line-height: 1.1;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.post-grid > li {
+  min-width: 0;
+}
+
+.post-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-4);
+  --card-background-color: #1b1825;
+  --card-border-width: 0px;
+  --base-card-surface-box-shadow: none;
+  --base-card-surface-hover-box-shadow: none;
+  --base-card-surface-active-box-shadow: none;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.post-card .rt-Heading {
+  color: var(--accent-11);
+}
+
+.post-card-thumb {
+  flex: none;
+  display: block;
+  width: 144px;
+  height: 144px;
+  border-radius: var(--radius-2);
+}
+
+/* The text's flex-basis is the whole responsive rule: when a card is too narrow
+   to seat the thumbnail and a readable text column side by side, the text wraps
+   beneath it and the card stacks. No media query knows the card's width. */
+.post-card-text {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.post-card .post-meta {
+  margin-top: var(--space-2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .post-card:hover {
+    --card-background-color: #221e2e;
+  }
+}
+
+.post-card:active {
+  --card-background-color: #292436;
+}
+
+.posts-page,
+.post {
+  padding-top: var(--space-4);
+}
+
+.post-backdrop {
+  position: absolute;
+  /* Clears the back link above it, so the square's top edge meets the h1's. */
+  top: calc(24px + var(--space-6));
+  left: calc(-300px - var(--space-6));
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.post-header {
+  position: relative;
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--gray-a5);
+}
+
+.post-back {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-2);
+}
+
+.post h1 {
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+}
+
+.post-lede {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.post-toc {
+  position: relative;
+  margin-left: auto;
+}
+
+.post-toc > summary {
+  width: fit-content;
+  padding: 0;
+  font-size: var(--font-size-2);
+  color: var(--accent-11);
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.post-toc > summary::-webkit-details-marker {
+  display: none;
+}
+
+.post-toc > summary::marker {
+  content: "";
+}
+
+.post-toc-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 24px;
+}
+
+.post-toc-label svg {
+  transition: transform 150ms ease;
+}
+
+.post-toc[open] .post-toc-label svg {
+  transform: rotate(180deg);
+}
+
+.post-toc > nav {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 5;
+  min-width: 16rem;
+  max-width: min(22rem, calc(100vw - 2 * var(--space-5)));
+  padding: var(--space-3);
+  background: var(--gray-2);
+  border: 1px solid var(--gray-a6);
+  border-radius: var(--radius-3);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.45);
+}
+
+.post-toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-toc a {
+  display: block;
+  min-height: 24px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-2);
+  font-size: var(--font-size-2);
+  line-height: 1.4;
+  color: var(--accent-11);
+  text-decoration: none;
+}
+
+.post-toc li[data-level="3"] a {
+  padding-left: var(--space-5);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .post-toc a:hover {
+    background: var(--gray-a3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-toc-label svg {
+    transition: none;
+  }
+}
+
+.post-body {
+  font-size: var(--font-size-4);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.post-body p {
+  margin-block: 1.25em;
+  line-height: inherit;
+}
+
+.post-body :is(h2, h3, h4, h5, h6) {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  scroll-margin-top: var(--space-5);
+}
+
+.post-body :is(ul, ol) {
+  padding-left: 1.5em;
+  margin-block: 1.25em;
+}
+
+.post-body li + li {
+  margin-top: 0.5em;
+}
+
+.post-body blockquote {
+  margin-block: 1.75em;
+  color: var(--gray-11);
+}
+
+.post-body code {
+  font-family: var(--code-font-family);
+  font-size: 0.85em;
+  border-radius: var(--radius-2);
+  background: var(--gray-a3);
+  padding: 0.15em 0.35em;
+}
+
+.post-body pre {
+  padding: var(--space-4);
+  overflow-x: auto;
+  background: var(--gray-a3);
+  border: 1px solid var(--gray-a5);
+  border-radius: var(--radius-3);
+  line-height: 1.6;
+}
+
+.post-body pre code {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+.post-body :is(img, video) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-3);
+}
+
+.post-body figure {
+  margin: 2em 0;
+}
+
+/* A paragraph directly after a diagram reads as that diagram's caption. */
+.post-body figcaption,
+.post-body figure + p {
+  color: var(--gray-11);
+  font-size: var(--font-size-2);
+  line-height: 1.6;
+  margin-top: var(--space-2);
+}
+
+.post-body figure:has(+ p) {
+  margin-bottom: var(--space-2);
+}
+
+.mermaid-diagram {
+  overflow-x: auto;
+  padding: var(--space-4);
+  border: 1px solid var(--gray-a5);
+  border-radius: var(--radius-3);
+  background: #18171a;
+}
+
+.mermaid-svg {
+  min-width: 540px;
+}
+
+.mermaid-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.mermaid-loading {
+  min-height: 320px;
+  border-radius: var(--radius-3);
+  background: var(--gray-a3);
+  animation: mermaid-throb 1.6s ease-in-out infinite;
+}
+
+@keyframes mermaid-throb {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mermaid-loading {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+.post-body .mermaid-diagram pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.post-body .footnotes {
+  margin-top: 3em;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--gray-a5);
+  font-size: var(--font-size-3);
+  color: var(--gray-11);
+}
+
+.post-body .footnotes li {
+  scroll-margin-top: var(--space-5);
+}
+
+.post-body .footnotes p {
+  margin-block: 0.5em;
+}
+
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--gray-a5);
+  margin-block: 2em;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin-block: 1.5em;
+}
+
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-3);
+}
+
+.post-body :is(th, td) {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--gray-a5);
+  text-align: left;
+}
+
+.post-body th {
+  font-weight: 600;
+  background: var(--gray-a3);
+}
+
+.post-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--gray-a5);
+}
+
+.radix-themes :is(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent-11);
+  outline-offset: 4px;
+}
+
+@media (pointer: coarse) {
+  .site-header a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

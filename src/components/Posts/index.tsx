@@ -1,21 +1,22 @@
-import { Box, Heading } from "@radix-ui/themes";
-
+import { Text } from "@radix-ui/themes";
 import PostsTeaser from "./Teaser";
 import { getPosts } from "@/lib/post-helpers";
 
-const Posts = () => {
-  const posts = getPosts();
+interface PostsProps {
+  limit?: number;
+  heading?: "h2" | "h3";
+}
 
+export default function Posts({ limit, heading = "h2" }: PostsProps) {
+  const posts = getPosts().slice(0, limit);
+  if (!posts.length) {
+    return <Text as="p" color="gray" my="5">The first article is on its way.</Text>;
+  }
   return (
-    <>
-      <Heading as="h2">Posts</Heading>
-      <Box>
-        {posts.map((post) => (
-          <PostsTeaser key={post.slug} {...post} />
-        ))}
-      </Box>
-    </>
+    <ul className="post-list post-grid">
+      {posts.map((post) => (
+        <PostsTeaser key={post.slug} post={post} heading={heading} />
+      ))}
+    </ul>
   );
-};
-
-export default Posts;
+}
