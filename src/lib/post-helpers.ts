@@ -10,8 +10,32 @@ export interface Post {
   date?: string;
   draft: boolean;
   thumbnail?: string;
+  ogImage?: { url: string; width?: number; height?: number };
   readingMinutes: number;
   filePath: string;
+}
+
+// No social platform renders an SVG as a link preview, so a vector thumbnail
+// points at the raster card `scripts/dot-thumbnail.mjs` writes beside it. A
+// thumbnail that is already raster can serve as its own card.
+function findOgImage(thumbnail?: string): Post["ogImage"] {
+  if (!thumbnail) return undefined;
+  if (!/\.svg$/i.test(thumbnail)) return { url: thumbnail };
+
+  const url = `${thumbnail.replace(/\.svg$/i, "")}-og.png`;
+  const file = path.join(process.cwd(), "public", url);
+  if (!fs.existsSync(file)) return undefined;
+
+  // Dimensions let a platform lay the card out before it finishes downloading.
+  // They live in the PNG header, at a fixed offset.
+  const head = Buffer.alloc(24);
+  const handle = fs.openSync(file, "r");
+  try {
+    fs.readSync(handle, head, 0, 24, 0);
+  } finally {
+    fs.closeSync(handle);
+  }
+  return { url, width: head.readUInt32BE(16), height: head.readUInt32BE(20) };
 }
 
 // Every post on disk, drafts included. Routing uses this so a draft still
@@ -71,6 +95,7 @@ export function getAllPosts(postsDirectory = "content/posts"): Post[] {
         date: date as string | undefined,
         draft,
         thumbnail: thumbnail as string | undefined,
+        ogImage: findOgImage(thumbnail as string | undefined),
         readingMinutes: Math.max(1, Math.ceil(wordCount / 200)),
         filePath,
       };

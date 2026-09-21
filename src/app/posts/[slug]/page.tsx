@@ -35,8 +35,15 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       url: `/posts/${post.slug}/`,
       ...(post.date && { publishedTime: `${post.date}T00:00:00Z` }),
       authors: ["Mat Jordan"],
+      ...(post.ogImage && { images: [{ ...post.ogImage, alt: post.title }] }),
     },
-    twitter: { card: "summary", title: post.title, description: post.description },
+    twitter: {
+      // The wide card is only honest once there is an image to fill it.
+      card: post.ogImage ? "summary_large_image" : "summary",
+      title: post.title,
+      description: post.description,
+      ...(post.ogImage && { images: [post.ogImage.url] }),
+    },
   };
 }
 
