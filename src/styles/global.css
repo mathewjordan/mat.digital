@@ -88,6 +88,20 @@ body {
   font-weight: inherit;
 }
 
+/* Radix derives every type and space token from --scaling, so stepping it down
+   trims the whole system proportionally instead of only shrinking text. */
+@media (max-width: 640px) {
+  .radix-themes {
+    --scaling: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .radix-themes {
+    --scaling: 0.95;
+  }
+}
+
 .post-list {
   list-style: none;
   margin: var(--space-5) 0 0;
@@ -376,15 +390,10 @@ body {
 }
 
 .mermaid-diagram {
-  overflow-x: auto;
   padding: var(--space-4);
   border: 1px solid var(--gray-a5);
   border-radius: var(--radius-3);
   background: #18171a;
-}
-
-.mermaid-svg {
-  min-width: 540px;
 }
 
 .mermaid-svg svg {
@@ -454,6 +463,7 @@ body {
 
 .post-body table {
   width: 100%;
+  min-width: 32rem;
   border-collapse: collapse;
   font-size: var(--font-size-3);
 }

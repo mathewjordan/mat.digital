@@ -65,6 +65,9 @@ export default function Mermaid({ chart }: { chart: string }) {
             suppressErrorRendering: true,
             htmlLabels: false,
             theme: "base",
+            // Mermaid 12 defaults to a styled look with drop shadows and
+            // gradient borders; "classic" keeps the diagram flat.
+            look: "classic",
             fontFamily: getComputedStyle(container.current).fontFamily,
             // Diagrams use the amber scale; the accent is reserved for links and actions.
             themeVariables: {
@@ -117,13 +120,14 @@ export default function Mermaid({ chart }: { chart: string }) {
 
   return (
     <figure className="mermaid-figure">
+      {/* The rendered diagram scales to fit, so only the source fallback can
+          overflow. Make this a keyboard-scrollable region just for that case,
+          rather than leaving a focus stop with nothing to scroll. */}
       <div
         ref={container}
         className="mermaid-diagram"
-        role="region"
-        aria-label="Diagram"
         aria-busy={!svg && !failed}
-        tabIndex={0}
+        {...(svg ? {} : { role: "region", "aria-label": "Diagram source", tabIndex: 0 })}
       >
         {svg ? (
           <div className="mermaid-svg" dangerouslySetInnerHTML={{ __html: svg }} />
