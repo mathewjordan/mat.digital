@@ -2,6 +2,7 @@ import "@radix-ui/themes/styles.css";
 import "@/styles/global.css";
 
 import {Box, Theme} from "@radix-ui/themes";
+import {GoogleAnalytics} from "@next/third-parties/google";
 import {IBM_Plex_Mono, IBM_Plex_Sans} from "next/font/google";
 
 import Footer from "@/components/Footer";
@@ -31,6 +32,9 @@ const sans = IBM_Plex_Sans({
   weight: ["400", "600", "700"],
 });
 
+// Only deployed builds set this, so local development stays out of the reports.
+const analyticsId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +58,7 @@ export default function RootLayout({
             </Box>
           </Theme>
         </ThemeProvider>
+        {analyticsId && <GoogleAnalytics gaId={analyticsId} />}
       </body>
     </html>
   );

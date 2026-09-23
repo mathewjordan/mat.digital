@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALLOW_INDEXING: ${{ vars.ALLOW_INDEXING || 'true' }}
+      NEXT_PUBLIC_GA_ID: ${{ vars.GA_MEASUREMENT_ID || 'G-NNNV2JPXNZ' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
