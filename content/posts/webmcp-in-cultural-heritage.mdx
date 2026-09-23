@@ -1,12 +1,12 @@
 ---
 title: "WebMCP in Cultural Heritage: Including Agent Users in UX"
 description: "How the new WebMCP specification connects cultural heritage to researchers in AI workspaces, impacts user experience, and expands access to our material."
-date: "2026-09-19"
-draft: true
+date: "2026-09-22"
+draft: false
 thumbnail: "/thumbnails/webmcp-in-cultural-heritage.svg"
 ---
 
-I had the pleasure of presenting work by our team at Northwestern[^team] last week at AI4LAM, hosted at the Library of Congress. Along with James Lee, Brendan Quinn, Kelsey Rydland (from afar), and Dean Xuemao Wang supporting in the crowd, we presented on how, after many years of work, we have landed on an [IIIF](https://iiif.io/) + [WebMCP](https://webmachinelearning.github.io/webmcp/) + [C2PA](https://spec.c2pa.org/) model for supporting our digital collections infrastructure on the web. The most discussed and asked-about of these three was the novel specification WebMCP, and what it means for the future of cultural heritage, user experience, and the web in general. First, we should disambiguate WebMCP and note that it is not some sort of complex tech that only institutions with an abundance of resources can implement. It's a bridge that we can all define for use by consumer-level AI workspaces in their interaction with our web content, whether a manuscript, a map, or the metadata describing them. Right now an agent reaching our pages is a stranger in a strange land, guessing at an interface built for someone else. WebMCP implementations will direct web agents working on behalf of actual humans toward tools of our own designation and the resources we want those agents to see, create better user experiences, and give us greater control over how AI platforms interact with our material.
+I had the pleasure of presenting work by our team at Northwestern[^team] last week at AI4LAM, hosted at the Library of Congress. Along with James Lee, Brendan Quinn, Kelsey Rydland (from afar), and Dean Xuemao Wang supporting in the crowd, we presented on how, after many years of work, we have landed on an [IIIF](https://iiif.io/) + [WebMCP](https://webmachinelearning.github.io/webmcp/) + [C2PA](https://spec.c2pa.org/) model for supporting our digital collections infrastructure on the web. The most discussed and asked-about of these three was the novel specification WebMCP, and what it means for the future of cultural heritage, user experience, and the web in general. First, we should disambiguate WebMCP and note that it is not some sort of complex tech that only institutions with an abundance of resources can implement. It's a bridge that we can all define for use by consumer-level AI workspaces in their interaction with our web content, whether a manuscript, a map, or the metadata describing them. Right now an agent reaching our pages is a stranger in a strange land, guessing at an interface built for someone else.[^monolith] WebMCP implementations will direct web agents working on behalf of actual humans toward tools of our own designation and the resources we want those agents to see, create better user experiences, and give us greater control over how AI platforms interact with our material.
 
 ## What is WebMCP?
 
@@ -59,7 +59,7 @@ Holistically built web presences are designed with user experience and discovera
 
 Agent users open up an entirely new realm of user experience considerations that, like web accessibility, span an infinite spectrum of nuance and practical solutions. These users are capable of modulating intelligence and effort level. This modulation has implications for token usage, response time, and accuracy of decision-making. Our WebMCP tool chains will need to be defined similarly to how websites have been architected with menus and user actions carefully designed for myriad humans in the browser. We should define our tools to meet the wide array of prompts a human may ask of our resources. Defining these with efficiency will provide a better experience to the agent, but more importantly, to the human at the other end seeking to interact with our material. If we can finesse our WebMCP tools correctly, human users can accurately and quickly access the material from Claude and ChatGPT clients, directly receiving the exact information and answers they sought.
 
-## Riding the wave
+## Strangers no more
 
 Can you imagine a world where most cultural heritage institutions have WebMCP tools defined and ready for agents building responses to open-ended prompts about famous painters, authors, and singers, efficiently and in context with IIIF resources? To prepare for this changing user landscape, Northwestern introduced a baseline set of WebMCP tools into production on our [Digital Collections](https://dc.library.northwestern.edu/) on September 10, 2026. We will continue to refine this toolset and monitor results in the near future as WebMCP is implemented by AI platforms and web browsers as a supported standard. Already, ChatGPT and Google Chrome have begun to introduce support, though for now it seems only the newer, higher-effort models reach for these tools without being pushed.
 
@@ -72,6 +72,8 @@ We are in the early stages of a shifting web, one where agent users work on beha
 [^risks]: As with all of the internet, there are risks and concerns. The WebMCP specification does not assume good actors. Its ["Key Security and Privacy Risks"](https://webmachinelearning.github.io/webmcp/#key-risks) section provides examples of malicious WebMCP tool implementations.
 
 [^apps]: Keith Schneider, ["The Best Tour Guide May Be in Your Purse"](https://www.nytimes.com/2010/03/18/arts/artsspecial/18SMART.html), The New York Times, March 2010. SFMOMA marked its 75th anniversary by handing visitors iPod Touches loaded with five hours of content on 200 works, and the article notes "almost every major art museum in the country" following in step. The same pattern is visible today in the heavy investment in chatbots and MCP servers built around closed vector data.
+
+[^monolith]: Perhaps this is how an agent is reacting to our DOM: [the Dawn of Man sequence in 2001: A Space Odyssey](https://youtu.be/ypEaGQb6dJk?t=151).
 
 [^aimode]: Northwestern's [Digital Collections](https://dc.library.northwestern.edu/) released an "AI Mode" chatbot of our own making in the summer of 2024. It asks a researcher to come to our site, log in, and learn its interface; it taxes our budget, because we pay for the tokens; and it answers only questions about our own set of data.
 
